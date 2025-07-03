@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindfulJournal - Professional Daily Motivation Platform</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="floating-particles" id="particles"></div>
+    
+    <div class="main-container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-journal-whills"></i>
+                    MindfulJournal
+                </div>
+                <div class="nav-actions">
+                    <a href="#" class="btn btn-secondary">
+                        <i class="fas fa-download"></i>
+                        Export
+                    </a>
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-chart-line"></i>
+                        Analytics
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero-section">
+                <h1 class="hero-title">Transform Your Mindset</h1>
+                <p class="hero-subtitle">
+                    Capture your daily motivations and build a powerful mindset through consistent journaling. 
+                    Your thoughts shape your reality.
+                </p>
+            </section>
+
+            <div class="content-grid">
+                <section class="journal-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-pen-fancy"></i>
+                        Create Entry
+                    </h2>
+                    
+                    <div id="successMessage" class="success-message" style="display: none;">
+                        <i class="fas fa-check-circle"></i>
+                        Your motivational entry has been saved successfully!
+                    </div>
+
+                    <form id="journalForm">
+                        <div class="form-group">
+                            <label class="form-label" for="authorName">Your Name</label>
+                            <input type="text" id="authorName" class="form-input" placeholder="Enter your name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="motivationMessage">Today's Motivation</label>
+                            <textarea id="motivationMessage" class="form-input form-textarea" 
+                                placeholder="What's inspiring you today? Share your thoughts, goals, or positive affirmations..." 
+                                required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i>
+                            Save Entry
+                        </button>
+                    </form>
+                </section>
+
+                <section class="journal-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-book-open"></i>
+                        Journal Entries
+                    </h2>
+                    
+                    <div class="stats-bar">
+                        <div class="stat-item">
+                            <div class="stat-number" id="totalEntries">0</div>
+                            <div class="stat-label">Total Entries</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="todayEntries">0</div>
+                            <div class="stat-label">Today</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="streakDays">0</div>
+                            <div class="stat-label">Day Streak</div>
+                        </div>
+                    </div>
+
+                    <div class="entries-display" id="entriesContainer">
+                        <div class="empty-state">
+                            <i class="fas fa-seedling"></i>
+                            <p>Start your journey by creating your first motivational entry!</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='entries.js') }}"></script>
+</body>
+</html>
